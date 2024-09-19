@@ -53,6 +53,9 @@ class TaskAdapter(private val listener: OnItemClickListener) : RecyclerView.Adap
     fun deleteTask(num:Int?){
         if (num != null) {
             taskList.removeAt(num)
+            for(i in 0..taskList.size-1){
+                taskList[i].numInList = i
+            }
         }
         notifyDataSetChanged()
     }
